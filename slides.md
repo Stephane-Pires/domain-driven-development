@@ -172,6 +172,34 @@ layout: section
 # Domain Mapping 🎨
 
 ---
+layout: statement
+---
+
+# Domain mapping is a representation of the structure and interaction of the domain
+
+### It's just a schema ?
+
+---
+layout: bullets
+---
+
+* Domain mapping aim to abstract technical details
+
+* Domain mapping is a "soft" mapping, not a "hard" mapping 
+
+* Domain mapping is a document shared between stackholders
+
+* Domain mapping must be updated has you disover the domain
+
+
+---
+layout: intro-image
+image: 'https://docs.microsoft.com/fr-fr/azure/architecture/microservices/images/ddd1.svg'
+---
+
+
+
+---
 layout: section
 ---
 # Crunching Knowledge 🧑‍💻
