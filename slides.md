@@ -124,8 +124,6 @@ Knowledge : Concept that pre-exist and used by the used in his subject area
 
 Influence : Concept invented by "us" in order to help the user in his subject area
 
-Activity : 
-
  -->
 
 ---
@@ -205,9 +203,104 @@ layout: section
 # Crunching Knowledge 🧑‍💻
 
 ---
+layout: statement
+---
+
+# Crunching Knowledge is the activity of discussing domain with domain expert
+
+### You'r gonna argue a lot !
+
+
+---
+layout: bullets
+---
+
+* Crunching Knowledge is an attitude to adopt when you'r looking for domain information
+
+* Don't assume behavior or definition, force domain expert to provide explanation
+
+* Start with use case, look for requirements, understand intent of use case, explore scenarios
+
+* It's about going deep enough to truly understand a subject
+
+
+---
 layout: section
 ---
 # Smart UI VS Layered Architecture 🤹
+
+---
+layout: statement
+---
+
+# Smart UI Architecture : Fast, Simple, Rigid
+
+### Release next week !
+
+---
+layout: quote
+---
+
+# "The situation where a smart UI is called for is if the application is dominated by data entry and display with any business logic being simple enough that it can be readily encoded in the UI."
+Levis Ramsey
+
+<!-- 
+
+Knowledge : Concept that pre-exist and used by the used in his subject area
+
+Influence : Concept invented by "us" in order to help the user in his subject area
+
+ -->
+
+---
+layout: bullets
+---
+
+* Smart UI, doesn't have layers (application, domain, infrastructure)
+
+* A good choice if you don't expect modification in business rules
+
+* Refactoring is gonna be hard
+
+---
+layout: statement
+---
+
+# Layered Architecture : Slow, Complexe, Flexible
+
+### Build to last !
+
+---
+layout: quote
+---
+
+# "Layered architecture is all about the organization of code for the separation of concerns. Each layer contains logic related to a particular concern."
+Me, inspired by ThinkToCode [layered Architecture](https://www.thinktocode.com/2018/07/05/layered-architecture/)
+
+<!-- 
+
+Knowledge : Concept that pre-exist and used by the used in his subject area
+
+Influence : Concept invented by "us" in order to help the user in his subject area
+
+ -->
+
+---
+layout: bullets
+---
+
+* Layered Architecture simplify domain refactoring
+
+* Common layers are  UI / application / domain / infrastructure 
+
+* The more layer, the more burden to implement a feature
+
+---
+layout: intro-image
+image: 'https://herbertograca.files.wordpress.com/2017/07/2010s-layered-architecture.png?w=640'
+---
+
+
 
 ---
 layout: section
