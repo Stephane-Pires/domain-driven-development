@@ -107,7 +107,7 @@ layout: section
 layout: statement
 ---
 
-# Ubiquitous langages is the lexique of the domain
+# Ubiquitous languages is the lexique of the domain
 
 ### Uh, but what's the domain dude ?
 
@@ -130,7 +130,7 @@ Influence : Concept invented by "us" in order to help the user in his subject ar
 layout: statement
 ---
 
-# Ubiquitous langages is the lexique of the domain
+# Ubiquitous languages is the lexique of the domain
 
 ### We already saw this one
 
@@ -138,13 +138,15 @@ layout: statement
 layout: bullets
 ---
 
-* The ubiquitous langage is rigorous, one word refer to one concept (bijective != surjective)
+* The ubiquitous language is rigorous, one word refer to one concept (bijective != surjective)
 
-* The ubiquitous langage can't be translated
+* The ubiquitous language can't be translated
 
-* The ubiquitous langage must be used when interacting with domain expert
+* The ubiquitous language must be used when interacting with domain expert
 
-* The ubiquitous langage evolve has you descover the domain
+* The ubiquitous language evolve has you descover the domain
+
+* The ubiquitous language helps the transmission of knowledge
 
 
 ---
@@ -152,7 +154,7 @@ layout: statement
 ---
 
 
-## An **INPUT** is an video flux that comes from a **SOURCE**
+## An **INPUT** is a video flux that comes from a **SOURCE**
 
 ### Exemple
 
@@ -188,6 +190,10 @@ layout: bullets
 * Domain mapping is a document shared between stackholders
 
 * Domain mapping must be updated has you disover the domain
+
+* Code isn't sufficent because it's **too detailed**
+
+* Domain mapping is coupled with the code but **less detailed**
 
 
 ---
@@ -289,23 +295,82 @@ Influence : Concept invented by "us" in order to help the user in his subject ar
 layout: bullets
 ---
 
+* Isolating the Domain layer is a pré-réquisit to DDD
+
 * Layered Architecture simplify domain refactoring
 
-* Common layers are  UI / application / domain / infrastructure 
+* Common layers are  UI / Application / Domain / Infrastructure 
 
 * The more layer, the more burden to implement a feature
 
+* Each layer communicate only with Layer +  1  and Layer - 1
+
 ---
 layout: intro-image
-image: 'https://herbertograca.files.wordpress.com/2017/07/2010s-layered-architecture.png?w=640'
+image: 'https://user.oc-static.com/upload/2020/05/05/15886650000516_Layered_High_Level.png'
 ---
-
-
 
 ---
 layout: section
 ---
 # Entities VS Value Object 🎥
+
+---
+layout: statement
+---
+
+# SPI Vs Stéphane
+
+### Narcissism at it's upmost
+
+---
+layout: bullets
+---
+
+```ts
+// Seat and Ticket are Value Object
+function getMyCinemaTicket(money: Number, movie: String): Ticket {
+  
+  if (!cinemaManager.isSeatAvailable(movie)) {
+    return `Sorry no more seat available for ${movie}`
+  }
+  
+  if (cinemaManager.takePayement(money))  {
+    let Ticket = cinemaManager.giveTicket(movie) 
+  } else {
+    return `Sorry there is not enough money`
+  }
+  
+  return ticket
+}
+```
+---
+layout: bullets
+---q
+
+```ts 
+// Seat and Ticket are Entities
+function getMyCinemaTicket(money: Number, movie: String, seat: Number): Ticket {
+  
+  if (!cinemaManager.isSeatAvailable(movie, seat)) {
+    return `Sorry no more seat available for ${movie}`
+  }
+  
+  if (cinemaManager.takePayement(money))  {
+    let Ticket = cinemaManager.giveTicket(movie, seat) 
+  } else {
+    return `Sorry there is not enough money`
+  }
+  
+  return ticket
+}
+```
+
+
+---
+layout: intro-image
+image: 'https://khorikov.org/images/2021/2021-02-09-entity-vs-value-object.png'
+---
 
 ---
 layout: section
@@ -339,3 +404,43 @@ layout: section
 layout: section
 ---
 # Side Effect Free Function & Closure over domain 🥴
+
+---
+layout: section
+---
+# Conclusion 🚀
+
+---
+layout: bullets
+---
+
+The Blue book has it his is outdated (2004 & hard POO). But the concept inside are still relevant
+
+* Domain Driven Architecture need a Domain
+
+* Need to be implemented at the beginning of a project and refactored during the lifetime of the project
+
+* Give **Flexibility** at the cost of **Layering** 
+
+* Is Hard
+
+* Is not bound to POO, but might be harder to implement without it
+
+---
+layout: section
+---
+# Action 👮‍♂️
+
+---
+layout: bullets
+---
+
+* (re)Discover our Domain
+
+* Find our Ubiquitous Language
+
+* Create a "soft" Domain mapping
+
+* Learn about different approach of DDD distant from POO [Domain modeling made functional](https://pragprog.com/titles/swdddf/domain-modeling-made-functional/)
+
+* Find a way to link new language/framework with Layered architecture
