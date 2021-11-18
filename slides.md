@@ -19,7 +19,7 @@ info: |
 drawings:
   persist: false
 
-colorSchema: 'light'
+colorSchema: 'dark'
 
 layout:  intro
 
@@ -40,7 +40,7 @@ An introduction  to software craftmanship
 
 ---
 layout: intro-image
-image: 'https://khalilstemmler.com/img/blog/ddd-intro/ddd-diagram.svg'
+image: 'https://cdn-images-1.medium.com/max/1600/1*FqBEqmDNo4ikzFmzxTQpUA.png'
 ---
 
 
@@ -328,6 +328,8 @@ layout: bullets
 ---
 
 ```ts
+//Disclaimer this is an illustration
+
 // Seat and Ticket are Value Object
 function getMyCinemaTicket(money: Number, movie: String): Ticket {
   
@@ -346,9 +348,11 @@ function getMyCinemaTicket(money: Number, movie: String): Ticket {
 ```
 ---
 layout: bullets
----q
+---
 
 ```ts 
+//Disclaimer this is an illustration
+
 // Seat and Ticket are Entities
 function getMyCinemaTicket(money: Number, movie: String, seat: Number): Ticket {
   
@@ -366,44 +370,159 @@ function getMyCinemaTicket(money: Number, movie: String, seat: Number): Ticket {
 }
 ```
 
+---
+layout: bullets
+---
 
----
-layout: intro-image
-image: 'https://khorikov.org/images/2021/2021-02-09-entity-vs-value-object.png'
----
+| Entities  |  Value Object |
+|---|---|
+| Identity equality | Structural equality |
+|  Trackable | Not trackable  |
+| Mutable |  Unmutable  |
+| Memory unfriendly | Memory friendly |
+
 
 ---
 layout: section
 ---
 # Services 📤
 
+---
+layout: statement
+---
+
+# A Service is domain logic that's neither a value object nor an entity
+
+---
+layout: bullets
+---
+
+* Services are **verbs** rather than **nouns**
+
+* Services are activities/actions that your domain perform
+
+* "The interface is defined in terms of other element of the domain"
+
+* The operation is stateless "Functionnaly pure"
+
 
 ---
 layout: section
 ---
-
 # Modules 📦
 
+
+
+
 ---
 layout: section
 ---
+
 # Aggregates 🛒
+
+
+
+---
+layout: statement
+---
+
+# Aggregates is a master object
+
+### What's inside the box ? (pain)
+
+---
+layout: bullets
+---
+
+* One of the sub-object becomes the aggregates root. 
+
+* Mutualy exclusive (Two disctinct aggregates can't overlap)
+
+* < It seems there is a preference for persisting aggregates other each object separetly >
+
+
+
+
 ---
 layout: section
 ---
 # Refactoring 🛠
+
+
+
+
 ---
 layout: section
 ---
+
 # Specification & Predicates 📇
+
+---
+layout: statement
+---
+
+# Specification are constraint that a Domain concept must respect
+
+---
+layout: statement
+---
+
+# A predicates is a function that returns a bool based on evaluation of the truth of an assertion.
+
+
+---
+layout: bullets
+---
+
+* Inside a specification you will find all the rules that a certain object must respect
+
+```ts
+//Disclaimer this is an illustration
+
+// moviePredicates.ts
+
+let isMovie3D: boolean  =  (movie: object) => movie.type === MOVIE_TYPE.THREE_DIMENSION
+
+let isMovieMusicFromHansZimmer: boolean  = (movie: object)  => movie.compositor ===  COMPOSITOR.HANS_ZIMMER
+```
+
 ---
 layout: section
 ---
 # Conceptual Contour 🏘
+
+---
+layout: statement
+---
+
+# Conceptual contour decompose design elements (operations, interfaces, classes, and aggregates) into cohesive units
+
 ---
 layout: section
 ---
 # Side Effect Free Function & Closure over domain 🥴
+
+---
+layout: bullets
+---
+
+* Side Effect free function is a function that produce the same output from the same input
+
+```ts
+function getMovieAuthor(movie: object)  {
+  return movie.author
+} 
+```
+* Procedures have side effect but procedures are inevitable
+
+```ts
+function getMovieList()  {
+  let movies = movieLibrary.retrivesMovies()
+
+  return movies
+} 
+```
+* We aim to erase side effect or circumscribe them when we can
 
 ---
 layout: section
